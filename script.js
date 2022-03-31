@@ -50,26 +50,27 @@ rollBtn.addEventListener("click", function () {
     console.log("player2:" + player2Count)
   }
 
-  if (player1Score >= 20 && player1Count === player2Count) {
-    message.textContent = "Player 1 has won! 🥳"
-    // message.textContent = popup("Player1 has Won! 🎉")
-    showDisplayButton()
-  } else if (player2Score >= 20) {
-    message.textContent = "Player 2 has won! 🎉"
-    // message.textContent = popup("Player2 has Won! 🥳")
-    showDisplayButton()
-  }
-  // if ((player1Score || player2Score) >= 20) {
-  //   if (player1Score > player2Score) {
-  //     message.textContent = "Player 1 won!"
-  //     rollBtn.style.display = "none"
-  //     resetBtn.style.display = "inline-block"
-  //   } else {
-  //     message.textContent = "Player 2 won!"
-  //     rollBtn.style.display = "none"
-  //     resetBtn.style.display = "inline-block"
-  //   }
+  // if (player1Score >= 20 && player1Count === player2Count) {
+  //   message.textContent = "Player 1 has won! 🥳"
+  //   // message.textContent = popup("Player1 has Won! 🎉")
+  //   showDisplayButton()
+  // } else if (player2Score >= 20 && player1Count === player2Count) {
+  //   message.textContent = "Player 2 has won! 🎉"
+  //   // message.textContent = popup("Player2 has Won! 🥳")
+  //   showDisplayButton()
   // }
+  if ((player1Score || player2Score) >= 20 && player1Count === player2Count) {
+    if (player1Score > player2Score) {
+      message.textContent = "Player 1 won!"
+      showDisplayButton()
+    } else if (player1Score < player2Score) {
+      message.textContent = "Player 2 won!"
+      showDisplayButton()
+    } else if (player1Score === player2Score) {
+      message.textContent = "Match Draw"
+      showDisplayButton()
+    }
+  }
   player1Turn = !player1Turn
 })
 
